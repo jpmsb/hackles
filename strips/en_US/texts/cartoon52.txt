@@ -1,0 +1,5 @@
+Date: August 13, 2001
+File: cartoon52.png
+Text: Hackles and Preston get EXTREME!
+Text: Corporate America has come up with the very silly concept of "extreme" to market various products to today's hip youth. It seems as if everything from soda pop to cartoons is billed as extreme these days. Why not extreme computer programming?
+Text: (#ff6532)Note: After posting this cartoon, we received a few emails informing us that there actually is an [extreme programming](http://extremeprogramming.org/) (XP) concept. What won't they think of next? Of course, like most things marketed as "extreme," there's just nothing extreme, or even mildly exciting about XP, as far as I can see. Maybe it's short for "(Extremely) sober corporate programming methodology"?

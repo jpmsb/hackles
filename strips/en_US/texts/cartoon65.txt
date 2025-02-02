@@ -1,0 +1,4 @@
+Date: September 19, 2001
+File: cartoon65.png
+Text: Percy tells a current events joke, nerd style.
+Text: For the UNIX-impaired, Percy's joke translates roughly to "give everyone permission to execute bin Laden." I (Drake) saw this somewhere on the Internet and thought it was quite clever. As for Preston, it looks as if he needs to brush up on either his UNIX or his current events knowledge. Of course, stubborn pig that he is, he won't admit it.

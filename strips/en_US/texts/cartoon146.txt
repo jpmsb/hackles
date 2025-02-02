@@ -1,0 +1,4 @@
+Date: April 1, 2002
+File: cartoon146.png
+Text: Vic vs. the Windows box, in a battle of the wits.
+Text: Yes, the Windows box is shouting. Of course it doesn't realize this, since it has no grasp of case sensitivity.

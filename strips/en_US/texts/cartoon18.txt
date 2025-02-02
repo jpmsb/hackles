@@ -1,0 +1,4 @@
+Date: May 10, 2001
+File: cartoon18.png
+Text: Hackles asks the penguins an unwise question.
+Text: Poor Hackles- he can never get a straight answer out of these guys. Actually, our geek friend Blue recommends OpenBSD for the job, but then again, he's not an angry penguin...

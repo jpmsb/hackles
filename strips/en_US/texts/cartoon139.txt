@@ -1,0 +1,4 @@
+Date: March 15, 2002
+File: cartoon139.png
+Text: Hazel finds a stumbling block in UNIX.
+Text: Well, have you ever seen a rabbit [grep](http://web.archive.org/web/20091015132908/http://www.gnu.org/software/grep/grep.html)? We didn't think so. You know, you just won't find this kind of humor in other comics...

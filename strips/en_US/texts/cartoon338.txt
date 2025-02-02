@@ -1,0 +1,4 @@
+Date: October 7, 2003
+File: cartoon338.png
+Text: The penguins get serious about security.
+Text: Now that is how systems administration should be done! This comic is a bit out of date, since the [OpenSSH warning](http://web.archive.org/web/20091015110927/http://www.securityfocus.com/archive/1/337662/2003-09-13/2003-09-19/0) actually took place a few weeks ago, but Jen had just left for San Francisco before we could post it then.

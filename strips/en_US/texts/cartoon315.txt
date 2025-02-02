@@ -1,0 +1,4 @@
+Date: June 19, 2003
+File: cartoon315.png
+Text: Marcus "pulls an SCO" on BitCo's competitor.
+Text: "We are not evacuating the planet because of the SCO lawsuit. Really. No need to panic." - Linus Torvalds

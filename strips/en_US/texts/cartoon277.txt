@@ -1,0 +1,5 @@
+Date: February 19, 2003
+File: cartoon277.png
+Text: Preston's 133t Easter Egg.
+Text: According to [webopedia.com](http://web.archive.org/web/20091015103322/http://www.webopedia.com/), an [Easter Egg](http://web.archive.org/web/20091015103322/http://www.webopedia.com/TERM/e/easter_egg.html) is "a secret message or screen buried in an application. Typically, easter eggs are used to display the credits for the development team or to display a humorous message."
+Text: While self-serving, Preston's little stunt is not that far-fetched when compared to the [Spy Hunter game](http://web.archive.org/web/20091015103322/http://www.eeggs.com/items/8240.html) embedded in Excel 2000, for example! For those interested, there are a [few](http://web.archive.org/web/20091015103322/http://www.eggheaven2000.com/) [sites](http://web.archive.org/web/20091015103322/http://www.eeggs.com/) on the web devoted to the topic of Easter Eggs.

@@ -1,0 +1,4 @@
+Date: January 2, 2002
+File: cartoon108.png
+Text: The penguins give the office network a LotR theme.
+Text: Maybe someone should tell the penguins it's [token ring](http://web.archive.org/web/20091015131607/http://www.cisco.com/univercd/cc/td/doc/cisintwk/ito_doc/tokenrng.htm), not Tolkien Ring...

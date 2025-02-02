@@ -1,0 +1,4 @@
+Date: January 25, 2002
+File: cartoon118.png
+Text: Vic has delusions of grandeur.
+Text:  What a humbling experience for a robot. But hey, his [natural language parsing](http://web.archive.org/web/20091015141108/http://www.primenet.com/pcai/New_Home_Page/ai_info/natural_lang_proc.html) ability seems pretty advanced for a VIC-20.

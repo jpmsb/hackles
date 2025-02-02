@@ -1,0 +1,4 @@
+Date: September 9, 2003
+File: cartoon334.png
+Text: Preston, the prolific coder.
+Text: Putting lots of comments in your code *does* increase readability, right? Of course ASCII art isn't usually useful, but in [some](http://web.archive.org/web/20091015110711/http://www.asciimation.co.nz/) [cases](http://web.archive.org/web/20091015110711/http://users.tpg.com.au/elayna/CleverASCIIAnimations.htm) it can be pretty darn cool.

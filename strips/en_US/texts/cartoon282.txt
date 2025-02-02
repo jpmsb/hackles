@@ -1,0 +1,4 @@
+Date: March 5, 2003
+File: cartoon282.png
+Text: And now for some rainy day poetry...
+Text: The code that Hackles wrote is inspired by a chapter in [Paul Graham](http://web.archive.org/web/20091015105704/http://www.paulgraham.com/)'s book, [ANSI Common Lisp](http://web.archive.org/web/20091015105704/http://www.paulgraham.com/acl.html). In the book, Graham's code is shown to transform Milton's [Paradise Lost](http://web.archive.org/web/20091015105704/http://www.literature.org/authors/milton-john/paradise-lost/) into some rather good, abstract poetry... at least it sounds better than Hackles' attempt to wax poetic (after all, the words "TCP" and "end-system" rarely sound good in a poem).

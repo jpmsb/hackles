@@ -1,0 +1,4 @@
+Date: August 26, 2003
+File: cartoon330.png
+Text: Marcus tries to stop Linux in the workplace.
+Text: It's cool that SCO's ridiculous legal battle against IBM and Linux [hasn't seemed to deter people](http://web.archive.org/web/20091015101946/http://www.computerworld.com/softwaretopics/os/linux/story/0,10801,83779,00.html) from using Linux. Sometimes it's best just to laugh at the stupidity :).

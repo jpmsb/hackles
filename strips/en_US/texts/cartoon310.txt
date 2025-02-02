@@ -1,0 +1,4 @@
+Date: June 3, 2003
+File: cartoon310.png
+Text: Preston's very efficient compression algorithm.
+Text: Pigzip's compression ability stems from the elegant simplicity of Preston's algorithm, which probably works similar to [rm](http://web.archive.org/web/20091015091833/http://www.die.net/doc/linux/man/man1/rm.1.html), another efficient "compression" tool. (Sorry folks, a little UNIX humor there).

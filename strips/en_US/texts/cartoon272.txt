@@ -1,0 +1,4 @@
+Date: February 7, 2003
+File: cartoon272.png
+Text: Did Red Robot really win?
+Text: Even a robot knows not to use `goto` statements! World domination won't be easy to achieve using pig-written spaghetti code...

@@ -1,0 +1,5 @@
+Date: January 23, 2002
+File: cartoon117.png
+Text: Behold, the birth of Vic!
+Text: And a painful birth it is! Despite the [scary warnings](http://web.archive.org/web/20091015135436/http://www.pccomputernotes.com/esd/esd2.htm) about electrostatic shocks, I (Drake) have to admit that I've never owned an anti-static wrist strap. In all the times I've opened up computers, it never seemed to be a problem.
+Text: Unfortunately, there is always that tiny fear in the back of my mind that a big spark will fly from my finger and melt the motherboard, or cause some similarly nutty disaster.

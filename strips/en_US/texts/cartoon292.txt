@@ -1,0 +1,4 @@
+Date: March 31, 2003
+File: cartoon292.png
+Text: Pete expresses himself: An investigation into the Penguin dialect.
+Text: We're laying the nerd humor on pretty thick here! Of course Pete is using a [regular expression](http://web.archive.org/web/20091015103956/http://etext.lib.virginia.edu/helpsheets/regex.html), which programmers use to describe and operate on patterns of text. This particular phrase is one of the examples in O'Reilly's canonical [sed & awk](http://web.archive.org/web/20091015103956/http://www.oreilly.com/catalog/sed2/) book.

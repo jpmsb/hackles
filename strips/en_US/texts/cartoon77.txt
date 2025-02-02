@@ -1,0 +1,4 @@
+Date: October 17, 2001
+File: cartoon77.png
+Text: Panic besets the office!
+Text: The nerd rating on this one is set pretty high. I (Drake) remember the first time I received a kernel panic message- the "Aieee!" was at once alarming and comical. And yes, of course I was pumped on caffeine at the time.

@@ -1,0 +1,4 @@
+Date: October 28, 2002
+File: cartoon231.png
+Text: Hackles tries a new Linux distribution.
+Text: For those who don't know, Hackles and the penguins [don't see eye to eye](/web/20091015124848/http://www.hackles.org/cgi-bin/archives.pl?request=92) on the subject of Unix text editors. While many geeks have strong opinions on the [vi vs. emacs](http://web.archive.org/web/20091015124848/http://www.io.com/~dierdorf/emacsvi.html) debate, the _Percy and Pete Linux_ distro probably takes things a bit too far...

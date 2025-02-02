@@ -1,0 +1,5 @@
+Date: June 25, 2001
+File: cartoon31.png
+Text: The search for a new programmer begins.
+Text: Ah, the memories this brings back... Drake can remember programming in LOGO as a wee child, drawing cars, battle tanks, and other fun things on his beloved Apple IIe.
+Text: Actually, [LOGO](http://www.engin.umd.umich.edu/CIS/course.des/cis400/logo/logo.html) was developed by education visionary Seymour Papert not solely as a drawing tool, but as a simple language for introducing children to computer programming; in that sense it succeeded admirably. In addition, this [LISP](http://www.primenet.com/pcai/New_Home_Page/ai_info/pcai_lisp.html)-based language is more sophisticated than Hackles realizes, having been used in a number of artificial intelligence and language processing projects.

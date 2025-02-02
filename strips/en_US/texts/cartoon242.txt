@@ -1,0 +1,4 @@
+Date: November 22, 2002
+File: cartoon242.png
+Text: Preston writes a boss button program.
+Text: Preston's boss button is partially inspired by the devious [Ghostzilla](http://web.archive.org/web/20091015133755/http://www.ghostzilla.com/) browser we [read about](http://web.archive.org/web/20091015133755/http://slashdot.org/article.pl?sid=02/11/08/1853200) on Slashdot, as well as by the crafty [boss button](http://web.archive.org/web/20091015133755/http://cartalk.cars.com/Tools/boss.pl) featured on the bottom of the [Car Talk](http://web.archive.org/web/20091015133755/http://cartalk.cars.com/) website. Of course, you'd have to be a pretty unobservant boss to be fooled by Preston's "work simulation".

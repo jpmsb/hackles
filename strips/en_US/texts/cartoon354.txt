@@ -1,0 +1,4 @@
+Date: December 4, 2003
+File: cartoon354.png
+Text: Hazel stumbles into multiple RAID level mysteryland.
+Text: I've always felt this was one of the more confusing hardware topics, and the BitCo gang's discussion resembles a little the  confounding one I had with a couple of my co-workers. Don't listen to Hackles and Preston, by the way. Percy [has it right](http://web.archive.org/web/20091015105941/http://www.pcguide.com/ref/hdd/perf/raid/levels/multXY-c.html), though you might not be able to speak the language of Quork.

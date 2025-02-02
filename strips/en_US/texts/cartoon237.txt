@@ -1,0 +1,4 @@
+Date: November 11, 2002
+File: cartoon237.png
+Text: Hackles unveils his new desktop theme.
+Text: Hackles enjoys making fun of the Mac as much as the next Linux geek, but even he concedes that Mac users are generally more ["hip"](http://web.archive.org/web/20091015131133/http://www.apple.com/switch/ads/) in the artistic sense. I (Drake) used the [twm](http://web.archive.org/web/20091015131133/http://www.plig.org/xwinman/screenshots/twm-system.gif) window manager for many months before fully realizing just how hideous it looked...

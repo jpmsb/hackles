@@ -1,0 +1,4 @@
+Date: March 18, 2002
+File: cartoon140.png
+Text: Hackles sends Preston to a dubious fate.
+Text: Percy and Pete are doing a fine job upholding the [BOFH](http://web.archive.org/web/20091015134836/http://bofh.ntk.net/Bastard.html) reputation of sysadmins everywhere! For those not in the know, here is the [jargon](http://web.archive.org/web/20091015134836/http://hes.iki.fi/jargon/jarginfo.html) definition of [RTFM](http://web.archive.org/web/20091015134836/http://hes.iki.fi/jargon/html/R/RTFM.html).

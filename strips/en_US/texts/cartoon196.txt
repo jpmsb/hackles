@@ -1,0 +1,4 @@
+Date: July 31, 2002
+File: cartoon196.png
+Text: Security is relative.
+Text: It's cool to be l33t, but that won't save you from the str33t. If only the world was as secure as a nerd's UNIX box...

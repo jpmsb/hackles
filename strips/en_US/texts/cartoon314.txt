@@ -1,0 +1,4 @@
+Date: June 17, 2003
+File: cartoon314.png
+Text: Preston tries to hawk his PIGZIP technology.
+Text: Astute readers may remember Preston's inauspicious [PIGZIP unveiling](/web/20091015101743/http://www.hackles.org/cgi-bin/archives.pl?request=310). It's probably too much to hope that our friend wrote the decompression part of his program before patenting it.

@@ -1,0 +1,4 @@
+Date: April 22, 2003
+File: cartoon298.png
+Text: Hazel's big new monitor.
+Text: This cringing reaction is common among those of us UNIX geeks who need to cram every inch of our desktops with xterms, and can't imagine setting our 17" monitors below 1280x1024 resolution. But we shouldn't judge Hazel too harshly- her eyesight isn't very good.

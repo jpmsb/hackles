@@ -1,0 +1,4 @@
+Date: May 13, 2002
+File: cartoon164.png
+Text: Katrina's web shooter strikes again!
+Text: The punchline for this one may be a bit esoteric for non-UNIX folks... [wget](http://web.archive.org/web/20091015134907/http://www.gnu.org/software/wget/wget.html) is a handy utility for retrieving Web content (it's not so good for stealing snacks- yet).

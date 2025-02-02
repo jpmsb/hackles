@@ -1,0 +1,4 @@
+Date: July 5, 2002
+File: cartoon187.png
+Text: When UML diagrams go wrong.
+Text: [UML](http://web.archive.org/web/20091015135703/http://www.omg.org/gettingstarted/what_is_uml.htm) stands for Unified Modeling Language. It is usually used to diagram software architecture, not to plot revenge against your co-workers.

@@ -1,0 +1,4 @@
+Date: July 29, 2002
+File: cartoon195.png
+Text: Marcus picks a name for BitCo's software.
+Text: The moral of the story (for engineers): Watch what you tell the marketing guy! At least this is a rare example of truth in advertising- it seems like most software products are named [deliberately to confuse](http://web.archive.org/web/20091015130317/http://www.computergripes.com/Microsoft.Product.Names.html) the buyer.

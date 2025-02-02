@@ -1,0 +1,4 @@
+Date: September 21, 2001
+File: cartoon66.png
+Text: Preston pedantically pontificates on stochastic processes.
+Text: This idea was inspired by our buddy Blue, who works with people who love using words like "stochastic." He dubs it "West Coast" techie terminology, along with words like "exogenous" and "orthogonal." Not that there's anything wrong with that, but it's kind of like talking to your English professor who keeps referring to food as "aliments" and "victuals."

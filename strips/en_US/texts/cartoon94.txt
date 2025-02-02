@@ -1,0 +1,4 @@
+Date: November 30, 2001
+File: cartoon94.png
+Text: The text editor holy war continues: Marcus doesn't get it.
+Text:  Is there no end to the nerdiness in this comic? Apparently not. If you are unfamiliar with the whole [emacs](http://web.archive.org/web/20091015113143/http://www.stallman.org/saint.html) vs. [vi](http://web.archive.org/web/20091015113143/http://www.thomer.com/thomer/vi/vi.html) rivalry, then perhaps you can relate to Marcus' bewilderment.

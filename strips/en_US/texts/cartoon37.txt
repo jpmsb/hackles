@@ -1,0 +1,4 @@
+Date: July 9, 2001
+File: cartoon37.png
+Text: Programming: Art vs. Science.
+Text: This is a question that has embroiled programmers in heated philosophical debate for decades. Of course, to a pig, a program is just a lot of slop thrown together.

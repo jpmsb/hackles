@@ -1,0 +1,4 @@
+Date: September 11, 2002
+File: cartoon214.png
+Text: Vic's advanced programming backfires.
+Text: Despite the disappointing results, Hackles should be quite proud if he could implement an [artificial neural network](http://web.archive.org/web/20091015140208/ftp://ftp.sas.com/pub/neural/FAQ.html#A2) on a VIC-20.

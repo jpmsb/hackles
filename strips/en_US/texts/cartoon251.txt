@@ -1,0 +1,4 @@
+Date: December 13, 2002
+File: cartoon251.png
+Text: Hackles mourns the state of today's youth.
+Text: Many Java programmers are all too familiar with this lay misconception. However, Drake *usually* tries not to scream at the heavens when asked about the difference between [Java](http://web.archive.org/web/20091015125505/http://www.webopedia.com/TERM/J/Java.html) and [JavaScript](http://web.archive.org/web/20091015125505/http://www.webopedia.com/TERM/J/JavaScript.html).

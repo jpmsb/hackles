@@ -1,0 +1,4 @@
+Date: November 25, 2003
+File: cartoon352.png
+Text: Katrina gets rankled by a certain word...
+Text: When I (Drake) first read the word indemnify, it was in an interview with [Scott McNealy](http://web.archive.org/web/20091015102803/http://www.sun.com/aboutsun/media/ceo/mgt_mcnealy.html) about the [SCO ordeal](http://web.archive.org/web/20091015102803/http://www.lemis.com/grog/sco.html). He kept using the words indemnify, indemnity, indemnification, etc. in almost every sentence, and for some reason that *bugged* me to no end.

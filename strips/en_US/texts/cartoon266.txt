@@ -1,0 +1,4 @@
+Date: January 20, 2003
+File: cartoon266.png
+Text: Marcus asks for the time - and gets it.
+Text: For the terminally curious, [rdate](http://web.archive.org/web/20091015105746/http://www.oreillynet.com/linux/cmd/r/rdate.html) is a handy TCP/IP command you can use to synchronize a computer's time with a time server. [NTP](http://web.archive.org/web/20091015105746/http://www.eecis.udel.edu/~ntp/) is a more fault-tolerant protocol that basically lets you do the same thing. It's good to know about this stuff if, like us, your computer clocks keep horrible time.
