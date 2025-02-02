@@ -12,11 +12,11 @@ Unfortunately, hackles.org is no longer online, but you can still access the web
 
 ## This project
 
-This project aims to bring the Hackles comic strip to new audiences, while being a side-project I like working on to improve my programming skills. I used to read this comic in Brazilian Portuguese, translated by Marcelo Toscani Brandão, back in 2011, at the defunct [tirinhas.com](https://web.archive.org/web/20081014025043/http://www.tirinhas.com/) website. The icons used in the navigation buttons, were retrieved from tirinhas.com as a tribute to the website that introduced me to this comic strip.
+This project aims to bring the Hackles comic strip to new audiences, while being a side-project I like working on to improve my programming skills. I used to read this comic in Brazilian Portuguese, translated by Marcelo Toscani Brandão, back in 2011, at the defunct [tirinhas.com](https://web.archive.org/web/20081014025043/http://www.tirinhas.com/) website. The icons used in the navigation buttons were retrieved from tirinhas.com as a tribute to the website that introduced me to this comic strip.
 
 All the strips in this repository were retrieved from the archived hackles.org website.
 
-It's written in C and uses the Raylib library to do all the graphics stuff. [Raylib](https://www.raylib.com/) is a simple and ease-to-use library that is used to make videogames.
+The application presented here it's written in C and uses the Raylib library to do all the graphical stuff. [Raylib](https://www.raylib.com/) is a simple and ease-to-use library that is used to make videogames.
 
 ## How to run
 
