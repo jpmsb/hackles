@@ -1,29 +1,29 @@
-# Nome do executável
+# Executable name
 TARGET = hackles
 
-# Arquivos fonte
+# Source files
 SRC = main.c navigation.c strip.c
 
-# Compilador e flags
+# Compiler and flags
 CC = gcc
 CFLAGS = -Wall -O2
 
-# Diretórios de includes e bibliotecas
+# Include dirs and libraries
 INCLUDES = -I.
 LIBS = ./raylib/libraylib.a -lm -ldl -lpthread -lGL -lrt -lX11 -Werror=return-type
 
-# Regra padrão
+# Main target
 all: $(TARGET)
 
-# Regra para criar o executável
+# Executable creation rule
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(SRC) $(LIBS)
 
-# Limpeza de arquivos compilados
+# Clean rule
 clean:
 	rm -f $(TARGET)
 
-# Regra para reconstruir do zero
+# Rebuild rule
 rebuild: clean all
 
 .PHONY: all clean rebuild
