@@ -1,0 +1,4 @@
+Date: September 19, 2001
+File: cartoon65.png
+Text: Percy conta uma piada sobre atualidades, estilo nerd.
+Text: Para os que não entendem de UNIX, a piada do Percy se traduz aproximadamente como "dar permissão para todos executarem bin Laden." Eu (Drake) vi isso em algum lugar na Internet e achei bem inteligente. Quanto ao Preston, parece que ele precisa melhorar seus conhecimentos de UNIX ou de atualidades. Claro, como o porco teimoso que ele é, ele não vai admitir.
