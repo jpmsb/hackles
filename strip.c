@@ -214,7 +214,7 @@ void DrawTextBoxedSelectable(CustomFont fontFamily[], const char *stripText, Rec
                         if (previous_codepoint == '_') underline_count++;
                         else underline_count = 0;
 
-                        if ((underline_count == 1)) {
+                        if (underline_count == 1) {
                             underline = !underline;
                         } 
                         previous_codepoint = codepoint;
