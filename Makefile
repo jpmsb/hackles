@@ -6,7 +6,7 @@ SRC = main.c navigation.c strip.c
 
 # Compilador e flags
 CC = gcc
-CFLAGS = -Wall -std=c23 -O2
+CFLAGS = -Wall -O2
 
 # Diretórios de includes e bibliotecas
 INCLUDES = -I.
