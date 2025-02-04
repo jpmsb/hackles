@@ -295,7 +295,7 @@ static void UpdateDrawFrame(void) {
             navigation_buttons = CalculateNavigationButtonsGeometry(half_current_screen_width, current_screen_height - (navigation_buttons.scaledContainer.height * 0.7), maxButtonWidth, maxButtonHeight, (scale * 1.2 + var_scale), selectedButtonScale, navigation, carlito);
             count = DrawNavigation(navigation_buttons, current_mouse_position, strips[current_language_index].stripAmount, count, selectedButtonScale, navigation_keys);
 
-            DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, 80 * current_screen_height / 100);
+            DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, current_screen_height - navigation_buttons.scaledContainer.height * 2);
 
             // Draw the date
             Vector2 date_position = { 10, (current_screen_height / 20) * 0.25 };
