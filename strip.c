@@ -257,16 +257,20 @@ void DrawTextBoxedSelectable(CustomFont fontFamily[], const char *stripText, Rec
 }
 
 void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomFont font[], int baseFontSize, float baseScale, float maxWidth, float maxHeight) {
-    if (stripData->texture.height > stripData->texture.width / 2) {
+    float image_scale = (float)maxHeight / (float)stripData->texture.height;
+    float current_image_width = stripData->texture.width * image_scale;
+
+    if ((stripData->texture.height > stripData->texture.width / 2) && (maxWidth > current_image_width)) {
         // Draw the strip image
-        float image_scale = (float)maxHeight / (float)stripData->texture.height;
+        image_scale = (float)maxHeight / (float)stripData->texture.height;
         float x_strip = x - (stripData->texture.width * image_scale);
         if (x_strip < 0) x_strip = 0;
         DrawStrip(x_strip, y, stripData->texture, image_scale);
 
         // Draw the strip description
         float text_scale = 1;
-        if (baseScale > 1) text_scale += baseScale * 0.2;
+        text_scale = baseScale;
+
         float strip_text_pos_x = x_strip + stripData->texture.width * image_scale;
         float text_max_width = maxWidth - strip_text_pos_x - x_strip;
         float text_max_height = maxHeight;
@@ -274,15 +278,16 @@ void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomF
         float text_height = MeasureStripTextHeight(&stripData->stripText, text_max_width, font[0], baseFontSize, text_scale);
         float y_strip = y + (maxHeight / 2) - (text_height / 2);
         DrawStripText(&stripData->stripText, strip_text_pos_x, y_strip, text_max_width, text_max_height, font, baseFontSize, text_scale);
-    } else {
+    } else if ((stripData->texture.height > stripData->texture.width / 2) && (maxWidth <= current_image_width)) {
         // Draw the strip image
-        float image_max_height = maxHeight * 0.7;
+        float image_max_height = maxHeight;
+
         float total_text_height = MeasureStripTextHeight(&stripData->stripText, maxWidth, font[0], baseFontSize, baseScale);
         float image_scale = (float)image_max_height / (float)stripData->texture.height;
 
         // Adjust the image scale if the text is too tall
         if (total_text_height + image_max_height > maxHeight) {
-            image_max_height = maxHeight - total_text_height * 0.85;
+            image_max_height = maxHeight - total_text_height * 0.9;
             image_scale = (float)image_max_height / (float)stripData->texture.height;
         }
 
@@ -292,10 +297,37 @@ void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomF
         // Draw the strip description
         float current_image_scale = CalculateAdjustedScale(stripData->texture, image_scale);
         float max_width = maxWidth - 20;
-        float max_height = maxHeight - image_max_height;
-        float text_scale = 1;
-        if (baseScale > 1) text_scale += baseScale * 0.1;
         float strip_text_pos_y = y + stripData->texture.height * current_image_scale + 10;
-        DrawStripText(&stripData->stripText, 10, strip_text_pos_y, max_width, max_height, font, baseFontSize, text_scale);
+        float max_text_height = maxHeight - strip_text_pos_y + 30; // 30 because of fixed date fonte size
+        float text_scale = baseScale * 0.9;
+
+        while (total_text_height < max_text_height * 0.7) {
+            baseFontSize += 1;
+            total_text_height = MeasureStripTextHeight(&stripData->stripText, max_width, font[0], baseFontSize, text_scale);
+        }
+        DrawStripText(&stripData->stripText, 10, strip_text_pos_y, max_width, max_text_height, font, baseFontSize, text_scale);
+    } else {
+        // Draw the strip image
+        float image_max_height = maxHeight * 0.7;
+
+        float total_text_height = MeasureStripTextHeight(&stripData->stripText, maxWidth, font[0], baseFontSize, baseScale);
+        float image_scale = (float)image_max_height / (float)stripData->texture.height;
+
+        // Adjust the image scale if the text is too tall
+        if (total_text_height + image_max_height > maxHeight) {
+            image_max_height = maxHeight - total_text_height * 0.9;
+            image_scale = (float)image_max_height / (float)stripData->texture.height;
+        }
+
+        float x_strip = x - (stripData->texture.width * image_scale) / 2;
+        DrawStrip(x_strip, y, stripData->texture, image_scale);
+
+        // Draw the strip description
+        float current_image_scale = CalculateAdjustedScale(stripData->texture, image_scale);
+        float max_width = maxWidth - 20;
+        float text_scale = baseScale;
+        float strip_text_pos_y = y + stripData->texture.height * current_image_scale + 10;
+        float max_text_height = maxHeight - strip_text_pos_y;
+        DrawStripText(&stripData->stripText, 10, strip_text_pos_y, max_width, max_text_height, font, baseFontSize, text_scale);
     }
 }
