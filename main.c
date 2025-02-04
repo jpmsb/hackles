@@ -8,24 +8,56 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-int main(void) {
-    char strips_dir[] = "resources/strips";
-    char strips_image_dir[] = "images";
-    char strips_text_dir[] = "texts";
-    char nav_dir[] = "resources/navigation";
-    char window_icon[] = "resources/logo/logohackles.png";
-    char fonts_dir[] = "resources/fonts";
+//-----------------------------------------------------------------
+// Shared variables definition (global)
+// Screen parameters
+const int screenWidth = 1024;
+const int screenHeight = 768;
+const int screenMinWidth = 1024;
+const int screenMinHeight = 768;
 
+// Scale parameters
+float var_scale = 0.5;
+
+// Navigation buttons parameters
+int maxButtonWidth = 26;
+int maxButtonHeight = 22;
+float selectedButtonScale = 1.2;
+NavigationButtonsGeometryArray navigation_buttons;
+Navigation navigation;
+int navigation_keys[] = { 0, KEY_LEFT, 0, KEY_RIGHT, 0 };
+
+// Variables that store the current strip and language
+int count = 0;
+int current_language_index = 0;
+
+// Fonts
+int base_font_size = 25;
+CustomFont carlito;
+CustomFont noto_mono_nerd;
+CustomFont fonts[2];
+
+bool errorOpenDir = false;
+
+StripCollection strips[MAX_LANGUAGES];
+
+// Resource directories
+char strips_dir[] = "resources/strips";
+char strips_image_dir[] = "images";
+char strips_text_dir[] = "texts";
+char nav_dir[] = "resources/navigation";
+char window_icon[] = "resources/logo/logohackles.png";
+char fonts_dir[] = "resources/fonts";
+//-----------------------------------------------------------------
+
+static void UpdateDrawFrame(void);          // Update and draw one frame
+
+int main(void) {
     struct dirent *de;
     DIR *strip_dir_ptr = opendir(strips_dir);
     DIR *nav_dir_ptr = opendir(nav_dir);
 
     // Initialization
-    const int screenWidth = 1024;
-    const int screenHeight = 768;
-    const int screenMinWidth = 1024;
-    const int screenMinHeight = 768;
-
     SetTraceLogLevel(LOG_NONE);
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Hackles");
@@ -36,8 +68,6 @@ int main(void) {
     Image icon = LoadImage(window_icon);
     SetWindowIcon(icon);
 
-    StripCollection strips[MAX_LANGUAGES];
-    
     // Recursively load the strips and texts into memory
     int language_index = 0;
     if (strip_dir_ptr != NULL) {
@@ -134,14 +164,13 @@ int main(void) {
                 language_index++;
             }
         }
-    }
+    } else errorOpenDir = true;
 
     // Sort the strips by number
     for (int i = 0; i < language_index; i++) {
         SortStrips(strips[i].strips, strips[i].stripAmount);
     }
 
-    Navigation navigation;
     if ((strip_dir_ptr != NULL) && (nav_dir_ptr != NULL)) {
         // Navigation file names
         char nav_first_png[] = NAV_FIRST;
@@ -187,16 +216,6 @@ int main(void) {
         }
     }
 
-    int count = 0;
-    int base_font_size = 25;
-    float var_scale = 0.5;
-    NavigationButtonsGeometryArray navigation_buttons;
-    int maxButtonWidth = 26;
-    int maxButtonHeight = 22;
-    float selectedButtonScale = 1.2;
-    int current_language_index = 0;
-    int navigation_keys[] = { 0, KEY_LEFT, 0, KEY_RIGHT, 0 };
-
     // Loading Carlito Font
     char carlito_regular[strlen(fonts_dir) + strlen("/Carlito-Regular.ttf") + 1];
     strcpy(carlito_regular, fonts_dir);
@@ -214,7 +233,6 @@ int main(void) {
     strcpy(carlito_bold_italic, fonts_dir);
     strcat(carlito_bold_italic, "/Carlito-BoldItalic.ttf");
 
-    CustomFont carlito;
     for (int size = 8; size < MAX_FONT_AMOUNT; size++) {
         carlito.regular[size] = LoadFontEx(carlito_regular, size, 0, 0);
         carlito.bold[size] = LoadFontEx(carlito_bold, size, 0, 0);
@@ -227,24 +245,37 @@ int main(void) {
     strcpy(noto_mono_nerd_regular, fonts_dir);
     strcat(noto_mono_nerd_regular, "/NotoMonoNerdFontMono-Regular.ttf");
 
-    CustomFont noto_mono_nerd;
     for (int size = 8; size < MAX_FONT_AMOUNT; size++) {
         noto_mono_nerd.regular[size] = LoadFontEx(noto_mono_nerd_regular, size, 0, 0);
     }
 
-    CustomFont fonts[2] = { carlito, noto_mono_nerd };
+    fonts[0] = carlito;
+    fonts[1] = noto_mono_nerd;
 
     while (!WindowShouldClose()) {
-        // Update
+        UpdateDrawFrame();
+    }
+
+    // De-Initialization
+    for (int i = 0; i < language_index; i++) {
+        for (int j = 0; j < strips[i].stripAmount; j++) {
+            UnloadTexture(strips[i].strips[j].texture);
+        }
+    }
+
+    CloseWindow();
+}
+
+static void UpdateDrawFrame(void) {
+    // Update
         ClearBackground(WHITE);
         BeginDrawing();
-
         
         int current_screen_width = GetScreenWidth();
         int current_screen_height = GetScreenHeight();
       
         // Draw an error message if the directory could not be opened
-        if (strip_dir_ptr == NULL) {
+        if (errorOpenDir) {
             char err_message[] = "Could not open current directory \"";
             char full_err_message[strlen(err_message) + strlen(strips_dir) + 4];
             strcpy(full_err_message, err_message);
@@ -278,14 +309,4 @@ int main(void) {
             DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, 80 * current_screen_height / 100);
         }
         EndDrawing();
-    }
-
-    // De-Initialization
-    for (int i = 0; i < language_index; i++) {
-        for (int j = 0; j < strips[i].stripAmount; j++) {
-            UnloadTexture(strips[i].strips[j].texture);
-        }
-    }
-
-    CloseWindow();
 }
