@@ -1,4 +1,4 @@
-#include "raylib/raylib.h"
+#include "raylib.h"
 #include "navigation.h"
 #include "strip.h"
 #include <stdio.h>

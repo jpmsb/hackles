@@ -1,7 +1,7 @@
 #ifndef STRIP_H
 #define STRIP_H
 
-#include "raylib/raylib.h"
+#include "raylib.h"
 #include "common_types.h"
 #include <math.h>
 #include <string.h>

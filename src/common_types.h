@@ -1,7 +1,7 @@
 #ifndef COMMON_TYPES_H
 #define COMMON_TYPES_H
 
-#include "raylib/raylib.h"
+#include "raylib.h"
 
 #define MAX_FONT_AMOUNT 64
 

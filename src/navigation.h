@@ -1,7 +1,7 @@
 #ifndef NAVIGATION_H
 #define NAVIGATION_H
 
-#include "raylib/raylib.h"
+#include "raylib.h"
 #include "common_types.h"
 
 #define NAV_FIRST "nav_first_on.png"
