@@ -27,6 +27,12 @@ NavigationButtonsGeometryArray navigation_buttons;
 Navigation navigation;
 int navigation_keys[] = { 0, KEY_LEFT, 0, KEY_RIGHT, 0 };
 
+// Logo
+Image icon = { 0 };
+
+// Indexes
+int language_index = 0;
+
 // Variables that store the current strip and language
 int count = 0;
 int current_language_index = 0;
@@ -50,13 +56,10 @@ char window_icon[] = "resources/logo/logohackles.png";
 char fonts_dir[] = "resources/fonts";
 //-----------------------------------------------------------------
 
+static void LoadData(void);                 // Load the strips and texts into memory
 static void UpdateDrawFrame(void);          // Update and draw one frame
 
 int main(void) {
-    struct dirent *de;
-    DIR *strip_dir_ptr = opendir(strips_dir);
-    DIR *nav_dir_ptr = opendir(nav_dir);
-
     // Initialization
     SetTraceLogLevel(LOG_NONE);
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
@@ -65,11 +68,31 @@ int main(void) {
     SetTargetFPS(60);
 
     // Load the window icon
-    Image icon = LoadImage(window_icon);
+    icon = LoadImage(window_icon);
     SetWindowIcon(icon);
 
+    LoadData();
+
+    while (!WindowShouldClose()) {
+        UpdateDrawFrame();
+    }
+
+    // De-Initialization
+    for (int i = 0; i < language_index; i++) {
+        for (int j = 0; j < strips[i].stripAmount; j++) {
+            UnloadTexture(strips[i].strips[j].texture);
+        }
+    }
+
+    CloseWindow();
+}
+
+static void LoadData(void) {
+    struct dirent *de;
+    DIR *strip_dir_ptr = opendir(strips_dir);
+    DIR *nav_dir_ptr = opendir(nav_dir);
+
     // Recursively load the strips and texts into memory
-    int language_index = 0;
     if (strip_dir_ptr != NULL) {
         while ((de = readdir(strip_dir_ptr)) != NULL) {
             strips[language_index].stripAmount = 0;
@@ -251,19 +274,6 @@ int main(void) {
 
     fonts[0] = carlito;
     fonts[1] = noto_mono_nerd;
-
-    while (!WindowShouldClose()) {
-        UpdateDrawFrame();
-    }
-
-    // De-Initialization
-    for (int i = 0; i < language_index; i++) {
-        for (int j = 0; j < strips[i].stripAmount; j++) {
-            UnloadTexture(strips[i].strips[j].texture);
-        }
-    }
-
-    CloseWindow();
 }
 
 static void UpdateDrawFrame(void) {
