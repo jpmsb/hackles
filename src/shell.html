@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="EN-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>raylib web game</title>
+
+    <meta name="title" content="Hackles">
+    <meta name="description" content="A Raylib project the presents a comic strip from the early 2000s, Hackles!">
+    <meta name="keywords" content="hackles, comic, webcomic, geek, linux, raylib, programming, library, games, videogames">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Open Graph metatags for sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hackles">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image" content="https://www.raylib.com/common/raylib_logo.png">
+    <meta property="og:image:alt" content="A Raylib project the presents a comic strip from the early 2000s, Hackles!" />
+    <meta property="og:site_name" content="Hackles">
+    <meta property="og:url" content="https://www.raylib.com/games.html">
+    <meta property="og:description" content="A Raylib project the presents a comic strip from the early 2000s, Hackles!">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.raylib.com/favicon.ico">
+
+    <style>
+        body { margin: 0px; overflow: hidden; background-color: black; }
+        canvas.emscripten { border: 0px none; background-color: black; }
+    </style>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js/dist/FileSaver.min.js"> </script>
+    <script type='text/javascript'>
+        function saveFileFromMEMFSToDisk(memoryFSname, localFSname)     // This can be called by C/C++ code
+        {
+            var isSafari = false; // Not supported, navigator.userAgent access is being restricted
+            //var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            var data = FS.readFile(memoryFSname);
+            var blob;
+
+            if (isSafari) blob = new Blob([data.buffer], { type: "application/octet-stream" });
+            else blob = new Blob([data.buffer], { type: "application/octet-binary" });
+
+            // NOTE: SaveAsDialog is a browser setting. For example, in Google Chrome,
+            // in Settings/Advanced/Downloads section you have a setting:
+            // 'Ask where to save each file before downloading' - which you can set true/false.
+            // If you enable this setting it would always ask you and bring the SaveAsDialog
+            saveAs(blob, localFSname);
+        }
+    </script>
+    </head>
+    <body>
+        <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+        <p id="output"></p>
+        <script>
+            var Module = {
+                print: (function() {
+                    var element = document.getElementById('output');
+                    if (element) element.value = ''; // clear browser cache
+                    return function(text) {
+                        if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                        console.log(text);
+                        if (element) {
+                          element.value += text + "\n";
+                          element.scrollTop = element.scrollHeight; // focus on bottom
+                        }
+                    };
+                })(),
+                canvas: (function() {
+                    var canvas = document.getElementById('canvas');
+                    return canvas;
+                })()
+            };
+
+            var Module = {
+                canvas: document.getElementById('canvas'),
+                mouseX: 0,
+                mouseY: 0
+            };
+
+            function updateMouseCoordinates(event) {
+                var rect = Module.canvas.getBoundingClientRect();
+
+                // Obtém a escala correta do canvas
+                var scaleX = Module.canvas.width / rect.width;
+                var scaleY = Module.canvas.height / rect.height;
+
+                // Se for um evento de toque, ajusta as coordenadas para o primeiro toque
+                if (event.touches) {
+                    event = event.touches[0];
+                }
+
+                // Ajusta as coordenadas do mouse ou toque
+                Module.mouseX = (event.clientX - rect.left) * scaleX;
+                Module.mouseY = (event.clientY - rect.top) * scaleY;
+            }
+
+            // Adiciona suporte a eventos de mouse
+            window.addEventListener("mousemove", updateMouseCoordinates);
+
+            // Adiciona suporte a eventos de toque para dispositivos móveis
+            window.addEventListener("touchstart", updateMouseCoordinates, { passive: false });
+            window.addEventListener("touchmove", updateMouseCoordinates, { passive: false });
+
+            // Ajusta o tamanho do canvas ao redimensionar a tela
+            window.addEventListener("resize", function() {
+                Module.canvas.width = window.innerWidth;
+                Module.canvas.height = window.innerHeight;
+            });
+        </script>
+        {{{ SCRIPT }}}
+    </body>
+</html>
