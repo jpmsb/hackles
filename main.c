@@ -8,6 +8,17 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#if defined(PLATFORM_WEB)
+    #include <emscripten/emscripten.h>
+
+    // Get the mouse position from the JavaScript side
+    Vector2 GetWebCanvasMousePosition() {
+        float x = EM_ASM_DOUBLE({ return Module.mouseX; });
+        float y = EM_ASM_DOUBLE({ return Module.mouseY; });
+        return (Vector2){ x, y };
+}
+#endif
+
 //-----------------------------------------------------------------
 // Shared variables definition (global)
 // Screen parameters
@@ -302,45 +313,50 @@ static void LoadData(void) {
 
 static void UpdateDrawFrame(void) {
     // Update
-        ClearBackground(WHITE);
-        BeginDrawing();
-        
-        int current_screen_width = GetScreenWidth();
-        int current_screen_height = GetScreenHeight();
-      
-        // Draw an error message if the directory could not be opened
-        if (errorOpenDir) {
-            char err_message[] = "Could not open current directory \"";
-            char full_err_message[strlen(err_message) + strlen(strips_dir) + 4];
-            strcpy(full_err_message, err_message);
-            strcat(full_err_message, strips_dir);
-            strcat(full_err_message, "\"");
-            Vector2 err_message_position = { 10, screenHeight / 2 };
-            DrawTextEx(carlito.bold[30], full_err_message, err_message_position, 30, 1, RED);
-        } else {
-            // Dynamic parameters
-            float vertical_scale = (float)current_screen_height / (float)screenHeight;
-            float horizontal_scale = (float)current_screen_width / (float)screenWidth;
-            float scale = (vertical_scale < horizontal_scale) ? vertical_scale : horizontal_scale;
-            float half_current_screen_width = (float)current_screen_width / 2;
+    ClearBackground(WHITE);
+    BeginDrawing();
+    
+    int current_screen_width = GetScreenWidth();
+    int current_screen_height = GetScreenHeight();
+    
+    // Draw an error message if the directory could not be opened
+    if (errorOpenDir) {
+        char err_message[] = "Could not open current directory \"";
+        char full_err_message[strlen(err_message) + strlen(strips_dir) + 4];
+        strcpy(full_err_message, err_message);
+        strcat(full_err_message, strips_dir);
+        strcat(full_err_message, "\"");
+        Vector2 err_message_position = { 10, screenHeight / 2 };
+        DrawTextEx(carlito.bold[30], full_err_message, err_message_position, 30, 1, RED);
+    } else {
+        // Dynamic parameters
+        float vertical_scale = (float)current_screen_height / (float)screenHeight;
+        float horizontal_scale = (float)current_screen_width / (float)screenWidth;
+        float scale = (vertical_scale < horizontal_scale) ? vertical_scale : horizontal_scale;
+        float half_current_screen_width = (float)current_screen_width / 2;
+
+        #if defined(PLATFORM_WEB)
+            Vector2 current_mouse_position = GetWebCanvasMousePosition();
+        #else
             Vector2 current_mouse_position = GetMousePosition();
+        #endif
 
-            // Draw the navigation buttons
-            navigation_buttons = CalculateNavigationButtonsGeometry(half_current_screen_width, current_screen_height - (navigation_buttons.scaledContainer.height * 0.7), maxButtonWidth, maxButtonHeight, (scale * 1.2 + var_scale), selectedButtonScale, navigation, carlito);
-            count = DrawNavigation(navigation_buttons, current_mouse_position, strips[current_language_index].stripAmount, count, selectedButtonScale, navigation_keys);
+        // Draw the navigation buttons
+        navigation_buttons = CalculateNavigationButtonsGeometry(half_current_screen_width, current_screen_height - (navigation_buttons.scaledContainer.height * 0.7), maxButtonWidth, maxButtonHeight, (scale * 1.2 + var_scale), selectedButtonScale, navigation, carlito);
+        count = DrawNavigation(navigation_buttons, current_mouse_position, strips[current_language_index].stripAmount, count, selectedButtonScale, navigation_keys);
 
-            DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, current_screen_height - navigation_buttons.scaledContainer.height * 2);
+        DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, current_screen_height - navigation_buttons.scaledContainer.height * 2);
 
-            // Draw the date
-            Vector2 date_position = { 10, (current_screen_height / 20) * 0.25 };
-            DrawTextEx(carlito.bold[30], strips[current_language_index].strips[count].stripText.date, date_position, 30, 1, BLACK);
+        // Draw the date
+        Vector2 date_position = { 10, (current_screen_height / 20) * 0.25 };
+        DrawTextEx(carlito.bold[30], strips[current_language_index].strips[count].stripText.date, date_position, 30, 1, BLACK);
 
-            // Draw the strip number
-            char strip_number_text[4];
-            sprintf(strip_number_text, "%d", strips[current_language_index].strips[count].number);
-            Vector2 strip_number_dimensions = MeasureTextEx(carlito.bold[30], strip_number_text, 30, 1);
-            Vector2 strip_number_position = { current_screen_width - strip_number_dimensions.x - 10, (current_screen_height / 20) * 0.25 };
-            DrawTextEx(carlito.bold[30], strip_number_text, strip_number_position, 30, 1, BLACK);
-        }
-        EndDrawing();
+        // Draw the strip number
+        char strip_number_text[4];
+        sprintf(strip_number_text, "%d", strips[current_language_index].strips[count].number);
+        Vector2 strip_number_dimensions = MeasureTextEx(carlito.bold[30], strip_number_text, 30, 1);
+        Vector2 strip_number_position = { current_screen_width - strip_number_dimensions.x - 10, (current_screen_height / 20) * 0.25 };
+        DrawTextEx(carlito.bold[30], strip_number_text, strip_number_position, 30, 1, BLACK);
+    }
+    EndDrawing();
 }
