@@ -9,11 +9,12 @@
 #include <sys/stat.h>
 
 int main(void) {
-    char strips_dir[] = "strips";
+    char strips_dir[] = "resources/strips";
     char strips_image_dir[] = "images";
     char strips_text_dir[] = "texts";
-    char nav_dir[] = "images/navigation";
-    char window_icon[] = "images/logohackles.png";
+    char nav_dir[] = "resources/navigation";
+    char window_icon[] = "resources/logo/logohackles.png";
+    char fonts_dir[] = "resources/fonts";
 
     struct dirent *de;
     DIR *strip_dir_ptr = opendir(strips_dir);
@@ -197,18 +198,38 @@ int main(void) {
     int navigation_keys[] = { 0, KEY_LEFT, 0, KEY_RIGHT, 0 };
 
     // Loading Carlito Font
+    char carlito_regular[strlen(fonts_dir) + strlen("/Carlito-Regular.ttf") + 1];
+    strcpy(carlito_regular, fonts_dir);
+    strcat(carlito_regular, "/Carlito-Regular.ttf");
+
+    char carlito_bold[strlen(fonts_dir) + strlen("/Carlito-Bold.ttf") + 1];
+    strcpy(carlito_bold, fonts_dir);
+    strcat(carlito_bold, "/Carlito-Bold.ttf");
+
+    char carlito_italic[strlen(fonts_dir) + strlen("/Carlito-Italic.ttf") + 1];
+    strcpy(carlito_italic, fonts_dir);
+    strcat(carlito_italic, "/Carlito-Italic.ttf");
+
+    char carlito_bold_italic[strlen(fonts_dir) + strlen("/Carlito-BoldItalic.ttf") + 1];
+    strcpy(carlito_bold_italic, fonts_dir);
+    strcat(carlito_bold_italic, "/Carlito-BoldItalic.ttf");
+
     CustomFont carlito;
     for (int size = 8; size < MAX_FONT_AMOUNT; size++) {
-        carlito.regular[size] = LoadFontEx("fonts/Carlito-Regular.ttf", size, 0, 0);
-        carlito.bold[size] = LoadFontEx("fonts/Carlito-Bold.ttf", size, 0, 0);
-        carlito.italic[size] = LoadFontEx("fonts/Carlito-Italic.ttf", size, 0, 0);
-        carlito.boldItalic[size] = LoadFontEx("fonts/Carlito-BoldItalic.ttf", size, 0, 0);
+        carlito.regular[size] = LoadFontEx(carlito_regular, size, 0, 0);
+        carlito.bold[size] = LoadFontEx(carlito_bold, size, 0, 0);
+        carlito.italic[size] = LoadFontEx(carlito_italic, size, 0, 0);
+        carlito.boldItalic[size] = LoadFontEx(carlito_bold_italic, size, 0, 0);
     }
 
     // Loading Notosans Nerd Font Mono
+    char noto_mono_nerd_regular[strlen(fonts_dir) + strlen("/NotoMonoNerdFontMono-Regular.ttf") + 1];
+    strcpy(noto_mono_nerd_regular, fonts_dir);
+    strcat(noto_mono_nerd_regular, "/NotoMonoNerdFontMono-Regular.ttf");
+
     CustomFont noto_mono_nerd;
     for (int size = 8; size < MAX_FONT_AMOUNT; size++) {
-        noto_mono_nerd.regular[size] = LoadFontEx("fonts/NotoMonoNerdFontMono-Regular.ttf", size, 0, 0);
+        noto_mono_nerd.regular[size] = LoadFontEx(noto_mono_nerd_regular, size, 0, 0);
     }
 
     CustomFont fonts[2] = { carlito, noto_mono_nerd };
