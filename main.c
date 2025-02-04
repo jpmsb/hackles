@@ -291,6 +291,12 @@ static void UpdateDrawFrame(void) {
             float half_current_screen_width = (float)current_screen_width / 2;
             Vector2 current_mouse_position = GetMousePosition();
 
+            // Draw the navigation buttons
+            navigation_buttons = CalculateNavigationButtonsGeometry(half_current_screen_width, current_screen_height - (navigation_buttons.scaledContainer.height * 0.7), maxButtonWidth, maxButtonHeight, (scale * 1.2 + var_scale), selectedButtonScale, navigation, carlito);
+            count = DrawNavigation(navigation_buttons, current_mouse_position, strips[current_language_index].stripAmount, count, selectedButtonScale, navigation_keys);
+
+            DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, 80 * current_screen_height / 100);
+
             // Draw the date
             Vector2 date_position = { 10, (current_screen_height / 20) * 0.25 };
             DrawTextEx(carlito.bold[30], strips[current_language_index].strips[count].stripText.date, date_position, 30, 1, BLACK);
@@ -301,12 +307,6 @@ static void UpdateDrawFrame(void) {
             Vector2 strip_number_dimensions = MeasureTextEx(carlito.bold[30], strip_number_text, 30, 1);
             Vector2 strip_number_position = { current_screen_width - strip_number_dimensions.x - 10, (current_screen_height / 20) * 0.25 };
             DrawTextEx(carlito.bold[30], strip_number_text, strip_number_position, 30, 1, BLACK);
-
-            // Draw the navigation buttons
-            navigation_buttons = CalculateNavigationButtonsGeometry(half_current_screen_width, current_screen_height - (navigation_buttons.scaledContainer.height * 0.7), maxButtonWidth, maxButtonHeight, (scale * 1.2 + var_scale), selectedButtonScale, navigation, carlito);
-            count = DrawNavigation(navigation_buttons, current_mouse_position, strips[current_language_index].stripAmount, count, selectedButtonScale, navigation_keys);
-            
-            DrawStripAndText(half_current_screen_width, 5 * current_screen_height / 100, &strips[current_language_index].strips[count], count, fonts, base_font_size, scale, current_screen_width, 80 * current_screen_height / 100);
         }
         EndDrawing();
 }
