@@ -29,6 +29,7 @@ int navigation_keys[] = { 0, KEY_LEFT, 0, KEY_RIGHT, 0 };
 
 // Logo
 Image icon = { 0 };
+Texture2D logo = { 0 };
 
 // Indexes
 int language_index = 0;
@@ -38,6 +39,7 @@ int count = 0;
 int current_language_index = 0;
 
 // Fonts
+int title_font_size = 40;
 int base_font_size = 25;
 CustomFont carlito;
 CustomFont noto_mono_nerd;
@@ -56,6 +58,7 @@ char window_icon[] = "resources/logo/logohackles.png";
 char fonts_dir[] = "resources/fonts";
 //-----------------------------------------------------------------
 
+static void DrawLoadingScreen(void);        // Draw the loading screen
 static void LoadData(void);                 // Load the strips and texts into memory
 static void UpdateDrawFrame(void);          // Update and draw one frame
 
@@ -71,6 +74,10 @@ int main(void) {
     icon = LoadImage(window_icon);
     SetWindowIcon(icon);
 
+    // Loading logo
+    logo = LoadTexture(window_icon);
+
+    DrawLoadingScreen();
     LoadData();
 
     while (!WindowShouldClose()) {
@@ -85,6 +92,23 @@ int main(void) {
     }
 
     CloseWindow();
+}
+
+static void DrawLoadingScreen(void) {
+    ClearBackground(WHITE);
+
+    float current_screen_width = (float)GetScreenWidth();
+    float current_screen_height = (float)GetScreenHeight();
+
+    float vertical_scale = (float)current_screen_height / (float)screenHeight;
+    float horizontal_scale = (float)current_screen_width / (float)screenWidth;
+    float scale = (vertical_scale < horizontal_scale) ? vertical_scale : horizontal_scale;
+    scale *= 2;
+
+    BeginDrawing();
+    DrawTextureEx(logo, (Vector2){ (current_screen_width / 2) - (logo.width * scale) / 2, (current_screen_height / 2) - (logo.height * scale) / 2 }, 0, scale, WHITE);
+    DrawText("Loading...", current_screen_width / 2 - MeasureText("Loading...", title_font_size) / 2, current_screen_height / 2 + logo.height * scale / 2 + 10, title_font_size, BLACK);
+    EndDrawing();
 }
 
 static void LoadData(void) {
