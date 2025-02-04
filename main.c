@@ -13,8 +13,8 @@
 // Screen parameters
 const int screenWidth = 1024;
 const int screenHeight = 768;
-const int screenMinWidth = 1024;
-const int screenMinHeight = 768;
+const int screenMinWidth = 320;
+const int screenMinHeight = 240;
 
 // Scale parameters
 float var_scale = 0.5;
