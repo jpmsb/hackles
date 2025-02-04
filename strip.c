@@ -62,7 +62,7 @@ void DrawStripText(StripText *stripTexts, float x, float y, float maxWidth, floa
         else text_height = font_size;
 
         y_pos += previous_text_height;
-        Rectangle rec = { x_pos, y_pos + (i * font_size), maxWidth, text_height };
+        Rectangle rec = { x_pos, y_pos + (i * font_size), maxWidth, text_height * 2 };
         DrawTextBoxedSelectable(font, stripTexts->texts[i]->text, rec, font_size, 1, true, BLACK, -1, -1, BLACK, BLACK);
         previous_text_height = text_height;
     }
@@ -299,13 +299,14 @@ void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomF
         float max_width = maxWidth - 20;
         float strip_text_pos_y = y + stripData->texture.height * current_image_scale + 10;
         float max_text_height = maxHeight - strip_text_pos_y + 30; // 30 because of fixed date fonte size
-        float text_scale = baseScale * 0.9;
+        float text_scale = baseScale;
+        int base_font_size = baseFontSize;
 
         while (total_text_height < max_text_height * 0.7) {
-            baseFontSize += 1;
-            total_text_height = MeasureStripTextHeight(&stripData->stripText, max_width, font[0], baseFontSize, text_scale);
+            base_font_size += 1;
+            total_text_height = MeasureStripTextHeight(&stripData->stripText, max_width, font[0], base_font_size, text_scale);
         }
-        DrawStripText(&stripData->stripText, 10, strip_text_pos_y, max_width, max_text_height, font, baseFontSize, text_scale);
+        DrawStripText(&stripData->stripText, 10, strip_text_pos_y, max_width, max_text_height, font, base_font_size, text_scale);
     } else {
         // Draw the strip image
         float image_max_height = maxHeight * 0.7;
