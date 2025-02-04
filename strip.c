@@ -256,7 +256,7 @@ void DrawTextBoxedSelectable(CustomFont fontFamily[], const char *stripText, Rec
     }
 }
 
-void DrawStripAndText(int x, int y, StripData *stripData, int count, CustomFont font[], int baseFontSize, float baseScale, float maxWidth, float maxHeight) {
+void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomFont font[], int baseFontSize, float baseScale, float maxWidth, float maxHeight) {
     if (stripData->texture.height > stripData->texture.width / 2) {
         // Draw the strip image
         float image_scale = (float)maxHeight / (float)stripData->texture.height;

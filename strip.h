@@ -48,6 +48,6 @@ void DrawStripText(StripText *stripTexts, float x, float y, float maxWidth, floa
 // https://github.com/raysan5/raylib/blob/master/examples/text/text_rectangle_bounds.c
 void DrawTextBoxedSelectable(CustomFont fontFamily[], const char *stripText, Rectangle rec, int fontSize, float spacing, bool wordWrap, Color tint, int selectStart, int selectLength, Color selectTint, Color selectBackTint);
 
-void DrawStripAndText(int x, int y, StripData *stripData, int count, CustomFont font[], int baseFontSize, float baseScale, float maxWidth, float maxHeight);
+void DrawStripAndText(float x, float y, StripData *stripData, int count, CustomFont font[], int baseFontSize, float baseScale, float maxWidth, float maxHeight);
 
 #endif
