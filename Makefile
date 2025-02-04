@@ -2,15 +2,15 @@
 TARGET = hackles
 
 # Source files
-SRC = main.c navigation.c strip.c
+SRC = src/main.c src/navigation.c src/strip.c
 
 # Compiler and flags
 CC = gcc
 CFLAGS = -Wall -O2
 
 # Include dirs and libraries
-INCLUDES = -I.
-LIBS = ./raylib/libraylib.a -lm -ldl -lpthread -lGL -lrt -lX11 -Werror=return-type
+INCLUDES = -I. -I src
+LIBS = lib/libraylib.a -lm -ldl -lpthread -lGL -lrt -lX11 -Werror=return-type
 
 # Main target
 all: $(TARGET)
