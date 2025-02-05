@@ -1,5 +1,34 @@
 #include "strip.h"
 
+char *CleanMarkdown(const char *text) {
+    char *result = malloc(strlen(text) + 1);
+    if (!result) return NULL;
+
+    int j = 0;
+    bool in_bold = false, in_italic = false;
+
+    for (int i = 0; text[i] != '\0'; i++) {
+        if (text[i] == '*' && text[i + 1] == '*') {
+            in_bold = !in_bold;
+            i++;
+        } else if (text[i] == '*') {
+            in_italic = !in_italic;
+        } else if (text[i] == '[') {
+            continue;
+        } else if (text[i] == ']' && text[i + 1] == '(') {
+            i++;
+            while (text[i] != ')' && text[i] != '\0') {
+                i++;
+            }
+        } else {
+            result[j++] = text[i];
+        }
+    }
+
+    result[j] = '\0';
+    return result;
+}
+
 float MeasureStripTextHeight(StripText *stripTexts, int maxWidth, CustomFont font, int baseFontSize, float scale){
     int font_size = (baseFontSize * scale) + 0.5;
     Vector2 strip_text_dimensions = { 0, 0 };
