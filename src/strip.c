@@ -80,14 +80,15 @@ void DrawStrip(float x, float y, Texture2D strip, float scale) {
 void DrawStripText(StripText *stripTexts, float x, float y, float maxWidth, float maxHeight, CustomFont font[], int baseFontSize, float scale){
     float x_pos = x;
     float y_pos = y;
-    int font_size = (baseFontSize * scale) + 0.5;
+    int font_size = ceil(baseFontSize * scale);
+    float measured_text_x_scale = 1.087;       // This fixes the text measured width offset
 
     // Draw the text
     float previous_text_height = 0;
     for (int i = 0; i < stripTexts->textCount; i++) {
         Vector2 text_dimensions = MeasureTextEx(font[0].regular[font_size], CleanMarkdown(stripTexts->texts[i]->text), font_size, 1);
         float text_height = 0;
-        if (text_dimensions.x > maxWidth) text_height = ceil((text_dimensions.x / (float)maxWidth)) * font_size;
+        if (text_dimensions.x > maxWidth) text_height = ceil((text_dimensions.x * measured_text_x_scale / (float)maxWidth)) * font_size;
         else text_height = font_size;
 
         y_pos += previous_text_height;
