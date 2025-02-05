@@ -35,7 +35,7 @@ float MeasureStripTextHeight(StripText *stripTexts, int maxWidth, CustomFont fon
     
     // Measure the whole text block height
     for (int i = 0; i < stripTexts->textCount; i++) {
-        Vector2 text_dimensions = MeasureTextEx(font.regular[font_size], stripTexts->texts[i]->text, font_size, 1);
+        Vector2 text_dimensions = MeasureTextEx(font.regular[font_size], CleanMarkdown(stripTexts->texts[i]->text), font_size, 1);
         float text_height = font_size;
 
         if (text_dimensions.x > maxWidth) text_height = ceil(text_dimensions.x / maxWidth) * font_size;
@@ -85,7 +85,7 @@ void DrawStripText(StripText *stripTexts, float x, float y, float maxWidth, floa
     // Draw the text
     float previous_text_height = 0;
     for (int i = 0; i < stripTexts->textCount; i++) {
-        Vector2 text_dimensions = MeasureTextEx(font[0].regular[font_size], stripTexts->texts[i]->text, font_size, 1);
+        Vector2 text_dimensions = MeasureTextEx(font[0].regular[font_size], CleanMarkdown(stripTexts->texts[i]->text), font_size, 1);
         float text_height = 0;
         if (text_dimensions.x > maxWidth) text_height = ceil((text_dimensions.x / (float)maxWidth)) * font_size;
         else text_height = font_size;
