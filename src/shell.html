@@ -80,28 +80,28 @@
             function updateMouseCoordinates(event) {
                 var rect = Module.canvas.getBoundingClientRect();
 
-                // Obtém a escala correta do canvas
+                // Get the correct canvas scale
                 var scaleX = Module.canvas.width / rect.width;
                 var scaleY = Module.canvas.height / rect.height;
 
-                // Se for um evento de toque, ajusta as coordenadas para o primeiro toque
+                // If it's a touch event, adjust the coordinates for the first touch
                 if (event.touches) {
                     event = event.touches[0];
                 }
 
-                // Ajusta as coordenadas do mouse ou toque
+                // Adjust the mouse or touch coordinates
                 Module.mouseX = (event.clientX - rect.left) * scaleX;
                 Module.mouseY = (event.clientY - rect.top) * scaleY;
             }
 
-            // Adiciona suporte a eventos de mouse
+            // Add support for mouse events
             window.addEventListener("mousemove", updateMouseCoordinates);
 
-            // Adiciona suporte a eventos de toque para dispositivos móveis
+            // Add support for touch events for mobile devices
             window.addEventListener("touchstart", updateMouseCoordinates, { passive: false });
             window.addEventListener("touchmove", updateMouseCoordinates, { passive: false });
 
-            // Ajusta o tamanho do canvas ao redimensionar a tela
+            // Adjust the canvas size when resizing the screen
             window.addEventListener("resize", function() {
                 Module.canvas.width = window.innerWidth;
                 Module.canvas.height = window.innerHeight;
