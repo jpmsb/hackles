@@ -56,7 +56,6 @@ Just run the executable:
 
 This is a working in progress project. Here are some things that is planned to be done in the future:
 
- - Splash screen
  - About character screen
  - Proper hyperlink support
  - Multiple language switch support
