@@ -9,7 +9,8 @@
 
 #define MAX_ELEMENTS 512
 #define MAX_TEXT_BLOCKS 8
-#define MAX_LANGUAGES 2
+#define MAX_LANGUAGES 8
+#define MAX_LANGUAGE_NAME 32
 
 typedef struct Text {
     char text[8192];
@@ -29,7 +30,7 @@ typedef struct StripData {
 } StripData;
 
 typedef struct StripCollection {
-    char language[8];
+    char language[MAX_LANGUAGE_NAME];
     int stripAmount;
     struct StripData strips[MAX_ELEMENTS];
 } StripCollection;
