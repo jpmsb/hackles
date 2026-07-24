@@ -130,13 +130,13 @@ static void LoadData(void) {
     // Recursively load the strips and texts into memory
     if (strip_dir_ptr != NULL) {
         while ((de = readdir(strip_dir_ptr)) != NULL) {
-            strips[language_index].stripAmount = 0;
-
-            // Storing the language
-            strcpy(strips[language_index].language, de->d_name);
-            
             // Checking if it's a directory
             if (strcmp(de->d_name, ".") && strcmp(de->d_name, "..")) {
+                // Avoid writing past strips[MAX_LANGUAGES]
+                if (language_index >= MAX_LANGUAGES) {
+                    break;
+                }
+
                 struct stat st;
                 char full_language_path[strlen(strips_dir) + strlen(de->d_name) + 2];
                 strcpy(full_language_path, strips_dir);
@@ -146,6 +146,10 @@ static void LoadData(void) {
 
                 // If it's a directory
                 if (S_ISDIR(st.st_mode)) {
+                    strips[language_index].stripAmount = 0;
+                    strncpy(strips[language_index].language, de->d_name, MAX_LANGUAGE_NAME - 1);
+                    strips[language_index].language[MAX_LANGUAGE_NAME - 1] = '\0';
+
                     // Full strips dir path
                     char full_image_dir_path[strlen(full_language_path) + strlen(strips_image_dir) + 2];
                     strcpy(full_image_dir_path, full_language_path);
@@ -218,8 +222,8 @@ static void LoadData(void) {
                             }
                         }
                     }
+                    language_index++;
                 }
-                language_index++;
             }
         }
     } else errorOpenDir = true;
